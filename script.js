@@ -20,9 +20,17 @@ ctx.translate(CSIZE, CSIZE);
 ctx.lineCap = "round";
 
 onresize = () => {
-    let D = Math.min(window.innerWidth, window.innerHeight) - 40;
-    ctx.canvas.style.width = D + "px";
-    ctx.canvas.style.height = D + "px";
+    const canvas = ctx.canvas;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // Set canvas dimensions
+    canvas.width = width;
+    canvas.height = height;
+
+    // Translate to center the drawing
+    ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset transform
+    ctx.translate(width / 2, height / 2);
 };
 
 const getRandomInt = (min, max, low) => {
@@ -252,6 +260,7 @@ var setCircles = () => {
 }
 
 onresize();
+window.addEventListener("resize", onresize);
 setCircles();
 ctx.strokeStyle = "hsla(" + getRandomInt(0, 360) + ",90%,60%,0.6)";
 start();

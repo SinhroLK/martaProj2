@@ -7,24 +7,21 @@
     <style>
         body {
             margin: 0;
-            overflow: hidden;
+            background: #000;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #000;
+            overflow: hidden;
         }
         canvas {
             display: block;
-        }
-        #canvas-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
+            max-width: 100%; /* Make canvas responsive */
+            max-height: 100%; /* Maintain proper size */
+            object-fit: contain;
         }
     </style>
+    
 </head>
 <body>
     <div id="canvas-container"></div>

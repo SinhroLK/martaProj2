@@ -9,13 +9,11 @@ const TP = 2 * Math.PI;
 const CSIZE = 400;
 
 const ctx = (() => {
-    let d = document.createElement("div");
-    d.style.textAlign = "center";
-    body.append(d);
+    let container = document.getElementById("canvas-container");
     let c = document.createElement("canvas");
     c.width = 2 * CSIZE;
     c.height = 2 * CSIZE;
-    d.append(c);
+    container.append(c);
     return c.getContext("2d");
 })();
 ctx.translate(CSIZE, CSIZE);
@@ -214,16 +212,16 @@ function resetPattern() {
     start();
 }
 
-ctx.canvas.onmouseover = () => {
-    inc = -8;
-};
+// ctx.canvas.onmouseover = () => {
+//     inc = -8;
+// };
 
-ctx.canvas.onmouseout = () => {
-    if (t <= -2000) {
-        resetPattern();
-    }
-    inc = 3;
-};
+// ctx.canvas.onmouseout = () => {
+//     if (t <= -2000) {
+//         resetPattern();
+//     }
+//     inc = 3;
+// };
 
 var hue = getRandomInt(0, 360);
 var ca = [new Circle(0, 0, 0, 0, 50, 0, 0)];
